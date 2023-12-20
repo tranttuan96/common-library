@@ -8,6 +8,7 @@ export class ReservationsService {
   constructor(
     private readonly reservationsRepository: ReservationsRepository,
   ) {}
+
   create(createReservationDto: CreateReservationDto) {
     return this.reservationsRepository.create({
       ...createReservationDto,
