@@ -16,8 +16,8 @@ export class PaymentsService {
 
   constructor(
     private readonly configService: ConfigService,
-    // @Inject(NOTIFICATIONS_SERVICE)
-    // private readonly notificationsService: ClientProxy,
+    @Inject(NOTIFICATIONS_SERVICE)
+    private readonly notificationsService: ClientProxy,
   ) {}
 
   async createCharge({ amount, email }: PaymentsCreateChargeDto) {
@@ -32,10 +32,10 @@ export class PaymentsService {
       },
     });
 
-    // this.notificationsService.emit('notify_email', {
-    //   email,
-    //   text: `Your payment of $${amount} has completed successfully.`,
-    // });
+    this.notificationsService.emit('notify_email', {
+      email,
+      text: `Your payment of $${amount} has completed successfully.`,
+    });
 
     return paymentIntent;
   }
