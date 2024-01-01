@@ -4,6 +4,7 @@ import { UsersService } from './users.service';
 import { DatabaseModule } from '@app/common';
 import { LoggerModule } from 'nestjs-pino';
 import { UserDocument, UserSchema } from './models/user.schema';
+import { UsersRepository } from './users.repository';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { UserDocument, UserSchema } from './models/user.schema';
     LoggerModule,
   ],
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, UsersRepository],
+  exports: [UsersService],
 })
 export class UsersModule {}
