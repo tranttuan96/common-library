@@ -15,11 +15,11 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
-        MONGOBD_URI: Joi.string(),
-        JWT_SECRET: Joi.string(),
-        JWT_EXPIRATION: Joi.string(),
-        HTTP_PORT: Joi.number(),
-        TCO_PORT: Joi.number(),
+        MONGODB_URI: Joi.string().required(),
+        JWT_SECRET: Joi.string().required(),
+        JWT_EXPIRATION: Joi.string().required(),
+        HTTP_PORT: Joi.number().required(),
+        TCP_PORT: Joi.number().required(),
       }),
     }),
     UsersModule,
