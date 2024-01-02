@@ -5,14 +5,14 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/translate-355602/reservations/production',
+        'asia-southeast1-docker.pkg.dev/translate-355602/reservations/production',
         '-f',
         'apps/reservations/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'us-east4-docker.pkg.dev/translate-355602/reservations/production']
+      ['push', 'asia-southeast1-docker.pkg.dev/translate-355602/reservations/production']
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
@@ -20,13 +20,13 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/translate-355602/auth/production',
+        'asia-southeast1-docker.pkg.dev/translate-355602/auth/production',
         '-f',
         'apps/auth/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east4-docker.pkg.dev/translate-355602/auth/production']
+    args: ['push', 'asia-southeast1-docker.pkg.dev/translate-355602/auth/production']
 
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
@@ -34,14 +34,14 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/translate-355602/notifications/production',
+        'asia-southeast1-docker.pkg.dev/translate-355602/notifications/production',
         '-f',
         'apps/notifications/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'us-east4-docker.pkg.dev/translate-355602/notifications/production']
+      ['push', 'asia-southeast1-docker.pkg.dev/translate-355602/notifications/production']
 
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
@@ -49,10 +49,10 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/translate-355602/payments/production',
+        'asia-southeast1-docker.pkg.dev/translate-355602/payments/production',
         '-f',
         'apps/payments/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east4-docker.pkg.dev/translate-355602/payments/production']
+    args: ['push', 'asia-southeast1-docker.pkg.dev/translate-355602/payments/production']
